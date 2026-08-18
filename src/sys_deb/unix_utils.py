@@ -26,6 +26,6 @@ async def run(command: list[str], console: Console) -> tuple[int, list[str], lis
             output.append(line.decode())
             console.print(line.decode(), end="", style=style)
 
-    await asyncio.gather(read(process.stdout), read(process.stderr, "red"))
+    await asyncio.gather(read(process.stdout, stdout_lines), read(process.stderr, stderr_lines, "red"))
 
     return await process.wait(), stdout_lines, stderr_lines

@@ -1,6 +1,9 @@
 import argparse
 from argparse import Namespace
+import asyncio
 from . import unix_utils
+
+from .refresh import refresh
 
 def parse_args() -> Namespace:
     parser = argparse.ArgumentParser("sys.deb")
@@ -31,3 +34,5 @@ def parse_args() -> Namespace:
 def main() -> None:
     unix_utils.require_root()
     args = parse_args()
+    if args.cmd:
+        asyncio.run(refresh(args))
