@@ -17,11 +17,7 @@ import shutil
 
 async def refresh(args: Namespace):
     console = Console()
-
-    console.print(f"Rich width: {console.width}")
-    console.print(f"terminal size: {shutil.get_terminal_size()}")
-    console.print(f"COLUMNS: {os.environ.get('COLUMNS')!r}")
-
+    
     with Progress(
         TextColumn("[progress.description]{task.description}"),
         BarColumn(bar_width=40, complete_style="bar.complete", finished_style="bar.complete"),
