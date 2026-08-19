@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker build -t sys-deb-dev .
+docker run --rm -it sys-deb-dev
