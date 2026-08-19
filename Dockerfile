@@ -1,8 +1,12 @@
 FROM debian:bookworm-slim
 
+# update-grub wont work anyway
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         zsh \
+        systemd \
+        initramfs-tools \
+        grub2-common \
     && rm -rf /var/lib/apt/lists/*
 
 # Install uv

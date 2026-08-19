@@ -20,10 +20,10 @@ async def refresh(args: Namespace):
     
     with Progress(
         TextColumn("[progress.description]{task.description}"),
-        BarColumn(bar_width=40, complete_style="bar.complete", finished_style="bar.complete"),
+        BarColumn(bar_width=None, complete_style="bar.complete", finished_style="bar.complete"),
         TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
         TimeRemainingColumn(),
-        console=console, refresh_per_second=2, expand=False
+        console=console, refresh_per_second=2, expand=True
         ) as p:
         task0 = p.add_task("Cleaning unused apt packages", total=3)
         task1 = p.add_task("Cleaning old tmpfiles", total=1)
